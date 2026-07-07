@@ -378,30 +378,34 @@ Network testing
 
 ---
 
-# AI Use Log
+## AI Use Log
 
-I used Claude as a development assistant throughout this assignment — for architecture discussions, debugging, and documentation, not for wholesale code generation. Everything below was reviewed, tested, and adjusted by hand before being committed.
+I used **ChatGPT (OpenAI)** and **Claude (Anthropic)** as development assistants throughout this assignment for architecture discussions, debugging, implementation guidance, and documentation. All generated suggestions were reviewed, tested, modified where necessary, and integrated manually before submission.
 
-**Tool used:** Claude (Anthropic)
+### Tools Used
 
-**Where it helped:**
+- **ChatGPT (OpenAI)**
+- **Claude (Anthropic)**
 
-- Discussing React project structure and how to organize screens, context, and services for a 3-screen flow
-- Working through the PWA setup — manifest fields, service worker caching strategy, and install-prompt behavior
-- Debugging Web Speech API quirks across browsers (start/stop handling, permission errors)
-- Reasoning through the offline queue + localStorage sync approach
-- Structuring and drafting this README
+### Where they helped
 
-**What I did myself:**
+- Discussing the React project structure and organizing screens, components, context, and services
+- Planning the multilingual (English/Marathi) implementation
+- Implementing the PWA setup (manifest, service worker, installability)
+- Debugging Web Speech API behavior and browser compatibility
+- Reviewing localStorage usage and offline support
+- Improving UI/UX, accessibility, and responsive design
+- Structuring and drafting the project documentation (README)
 
-- Wrote and wired up all component logic, styling, and state management by hand
-- Tested every flow manually under Chrome DevTools Slow 3G and offline modes
-- Verified bilingual toggle coverage across all screens
-- Made the final calls on UI/UX, animation timing, and what shipped vs. what got cut
+### What I did myself
 
-I'm comfortable walking through any part of this codebase and explaining the reasoning behind it in an interview — the AI was used to move faster on setup and debugging, not to skip understanding the implementation.
+- Integrated and customized all features within the application
+- Implemented the final component structure, routing, and state management
+- Tested the complete application manually, including Slow 3G and offline scenarios
+- Verified bilingual support across all screens
+- Made the final implementation decisions, UI/UX refinements, and feature scope
 
----
+I'm comfortable explaining the architecture, implementation decisions, and codebase during an interview. AI tools were used to accelerate development and debugging, not as a replacement for understanding or testing the implementation.
 
 # What I Learned
 
