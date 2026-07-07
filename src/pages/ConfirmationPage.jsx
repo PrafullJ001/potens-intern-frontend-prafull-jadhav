@@ -65,9 +65,9 @@ export default function ConfirmationPage() {
       <Header />
       <ProgressStepper currentStep="confirmation" />
 
-      <main className="flex-1 max-w-md w-full mx-auto px-4 pt-8 pb-10 flex flex-col items-center text-center">
-        {/* micro-interaction: check mark draws itself in on mount */}
-        <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mb-5">
+      <main className="flex-1 w-full max-w-md sm:max-w-lg mx-auto px-4 pt-8 pb-10 flex flex-col items-center text-center">
+        {/* micro-interaction: check mark draws itself in on mount, once, respects reduced-motion via global CSS */}
+        <div className="w-16 h-16 shrink-0 rounded-full bg-emerald-50 flex items-center justify-center mb-5">
           <Check
             size={30}
             strokeWidth={2.5}
@@ -75,29 +75,35 @@ export default function ConfirmationPage() {
           />
         </div>
 
-        <h1 className="text-xl font-semibold text-slate-900 mb-1">
+        <h1 className="text-lg sm:text-xl font-semibold text-slate-900 mb-1 break-words">
           {t("confirmation.title")}
         </h1>
-        <p className="text-sm text-slate-500 mb-8">{t("confirmation.subtitle")}</p>
+        <p className="text-sm text-slate-500 mb-8 break-words">
+          {t("confirmation.subtitle")}
+        </p>
 
         <div className="w-full bg-white border border-slate-200 rounded-2xl p-5 mb-3">
-          <p className="text-xs text-slate-400 mb-1">{t("confirmation.refLabel")}</p>
-          <p className="text-lg font-mono font-semibold text-slate-900 tracking-wide">
+          <p className="text-xs text-slate-400 mb-1 break-words">
+            {t("confirmation.refLabel")}
+          </p>
+          <p className="text-lg font-mono font-semibold text-slate-900 tracking-wide break-all">
             {submission.referenceId}
           </p>
-          <p className="text-xs text-slate-400 mt-2">{t("confirmation.refHint")}</p>
+          <p className="text-xs text-slate-400 mt-2 break-words">
+            {t("confirmation.refHint")}
+          </p>
         </div>
 
         {!isOnline && (
-          <p className="text-xs text-amber-600 bg-amber-50 border border-amber-100 rounded-lg px-3 py-2 w-full">
+          <p className="text-xs text-amber-600 bg-amber-50 border border-amber-100 rounded-lg px-3 py-2 w-full break-words">
             {t("confirmation.pendingSync")}
           </p>
         )}
 
-        <div className="w-full mt-8 space-y-3">
-          <Button onClick={() => navigate(`/status/${submission.referenceId}`)}>
-            {t("confirmation.trackStatus")}
-          </Button>
+        <div
+          className="w-full mt-8 space-y-3"
+          style={{ paddingBottom: "max(0px, env(safe-area-inset-bottom))" }}
+        >
           <Button variant="secondary" onClick={() => navigate("/")}>
             {t("confirmation.newReport")}
           </Button>

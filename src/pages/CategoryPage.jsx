@@ -29,13 +29,15 @@ export default function CategoryPage() {
       <Header />
       <ProgressStepper currentStep="category" />
 
-      <main className="flex-1 max-w-md w-full mx-auto px-4 pt-2 pb-28">
-        <h1 className="text-xl font-semibold text-slate-900 mb-1">
+      <main className="flex-1 w-full max-w-md sm:max-w-lg mx-auto px-4 pt-2 pb-28">
+        <h1 className="text-lg sm:text-xl font-semibold text-slate-900 mb-1 break-words">
           {t("category.title")}
         </h1>
-        <p className="text-sm text-slate-500 mb-6">{t("category.subtitle")}</p>
+        <p className="text-sm text-slate-500 mb-6 break-words">
+          {t("category.subtitle")}
+        </p>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           {categories.map(({ id, icon: Icon }) => (
             <CategoryCard
               key={id}
@@ -48,8 +50,11 @@ export default function CategoryPage() {
         </div>
       </main>
 
-      <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-slate-100 p-4">
-        <div className="max-w-md mx-auto">
+      <div
+        className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-slate-100 p-4"
+        style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
+      >
+        <div className="max-w-md sm:max-w-lg mx-auto">
           <Button onClick={handleNext} disabled={!selected}>
             {t("common.next")}
           </Button>

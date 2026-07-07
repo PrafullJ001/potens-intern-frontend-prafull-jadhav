@@ -35,7 +35,7 @@ export default function VoiceRecorder({ onTranscript }) {
 
   if (!supported) {
     return (
-      <p className="text-xs text-slate-400 italic">
+      <p className="text-xs text-slate-400 italic break-words">
         {t("details.voiceUnsupported")}
       </p>
     );
@@ -43,20 +43,22 @@ export default function VoiceRecorder({ onTranscript }) {
 
   return (
     <div>
-      <label className="block text-sm font-medium text-slate-700 mb-1.5">
+      <label className="block text-sm font-medium text-slate-700 mb-1.5 break-words">
         {t("details.voiceLabel")}
       </label>
       <button
         type="button"
         onClick={handleToggle}
+        aria-pressed={isListening}
+        aria-label={isListening ? t("details.voiceListening") : t("details.voiceStart")}
         className={cx(
-          "w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl border transition-all duration-200",
+          "w-full min-h-[48px] flex items-center justify-center gap-2.5 py-3.5 px-3 rounded-xl border transition-all duration-200 touch-manipulation",
           isListening
             ? "border-red-200 bg-red-50 text-red-600"
             : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
         )}
       >
-        <span className="relative flex items-center justify-center">
+        <span className="relative flex items-center justify-center shrink-0">
           {isListening && (
             <span className="absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-60 animate-ping" />
           )}
@@ -66,7 +68,7 @@ export default function VoiceRecorder({ onTranscript }) {
             <Mic size={18} className="relative" strokeWidth={1.75} />
           )}
         </span>
-        <span className="text-sm font-medium">
+        <span className="text-sm font-medium break-words">
           {isListening ? t("details.voiceListening") : t("details.voiceStart")}
         </span>
       </button>
