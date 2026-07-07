@@ -1,16 +1,437 @@
-# React + Vite
+# CivicVoice – Multilingual Civic Issue Reporting PWA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mobile-first Progressive Web Application (PWA) built for the **Potens Frontend Internship Assignment (Q1)**.
 
-Currently, two official plugins are available:
+CivicVoice allows citizens to quickly report civic issues by selecting a category, describing the issue using text, image, or voice input, and receiving a unique reference ID. The application supports both **English** and **Marathi**, works on slow networks, and can be installed like a native mobile app.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+# GitHub Repository
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+https://github.com/PrafullJ001/potens-intern-frontend-prafull-jadhav
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Assignment
+
+Frontend – Q1
+
+Multilingual Civic-Style Progressive Web Application
+
+---
+
+# Features
+
+## Required Features
+
+### Three Screen Flow
+
+- Category Selection
+- Issue Details
+- Confirmation Screen
+
+---
+
+### Category Selection
+
+Users can report different civic issues.
+
+Available Categories
+
+- Road Damage
+- Garbage
+- Water Leakage
+- Street Light
+- Electricity
+- Others
+
+---
+
+### Issue Details
+
+Users can
+
+- Enter description
+- Upload an image
+- Use voice input
+
+---
+
+### Voice Input
+
+Implemented using the Web Speech API.
+
+Users can dictate the issue description using their microphone.
+
+---
+
+### Bilingual Support
+
+Supports
+
+- English
+- Marathi
+
+Every label, placeholder, button, and heading changes dynamically.
+
+---
+
+### Confirmation Screen
+
+After submission the application
+
+- Generates a unique reference ID
+- Stores the report locally
+- Displays a confirmation message
+
+Example Reference ID
+
+CV-7F42D9A1
+
+---
+
+### Local Storage
+
+Reports are stored locally using browser localStorage.
+
+No backend is required.
+
+---
+
+### Progressive Web App (PWA)
+
+Implemented
+
+- Web Manifest
+- Service Worker
+- Offline page
+- Installable application
+- Home screen installation
+
+---
+
+### Slow 3G Friendly
+
+Designed to remain usable under Chrome DevTools Slow 3G throttling.
+
+Optimizations include
+
+- Minimal assets
+- Cached resources
+- Fast repeat loading
+- Lightweight UI
+
+---
+
+## Stretch Features
+
+### Offline Queue
+
+When the user submits while offline
+
+- Report is saved locally
+- Queued for synchronization
+- Automatically processed when the connection returns (simulation using localStorage)
+
+---
+
+### Responsive Design
+
+Optimized for
+
+- Mobile
+- Tablet
+- Desktop
+
+---
+
+### Micro Interaction
+
+Includes subtle animations using Framer Motion.
+
+Examples
+
+- Category selection animation
+- Submit button transition
+- Confirmation animation
+
+---
+
+# Tech Stack
+
+Frontend
+
+- React
+- Vite
+- Tailwind CSS
+- React Router DOM
+
+Browser APIs
+
+- Web Speech API
+- Local Storage API
+- Service Worker API
+
+Libraries
+
+- Framer Motion
+- React Icons
+
+---
+
+# Folder Structure
+
+```
+src
+│
+├── assets
+├── components
+├── context
+├── data
+├── hooks
+├── pages
+├── routes
+├── services
+├── utils
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+---
+
+# Application Flow
+
+```
+Category Selection
+
+↓
+
+Issue Details
+
+↓
+
+Photo Upload
+
+↓
+
+Voice Input
+
+↓
+
+Submit
+
+↓
+
+Generate Reference ID
+
+↓
+
+Confirmation
+```
+
+---
+
+# Installation
+
+Clone repository
+
+```bash
+git clone https://github.com/PrafullJ001/potens-intern-frontend-prafull-jadhav.git
+```
+
+Move into project
+
+```bash
+cd potens-intern-frontend-prafull-jadhav
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start development server
+
+```bash
+npm run dev
+```
+
+Build production version
+
+```bash
+npm run build
+```
+
+Preview production build
+
+```bash
+npm run preview
+```
+
+---
+
+# Design Decisions
+
+Instead of building a feature-heavy application, I focused on delivering a clean, reliable, and user-friendly experience.
+
+Key decisions
+
+- Mobile-first interface
+- Reusable React components
+- Context API for language management
+- Utility-based styling using Tailwind CSS
+- Local storage instead of backend
+- Lightweight assets for slow networks
+- Progressive enhancement through PWA support
+
+---
+
+# Accessibility
+
+The application includes
+
+- Keyboard accessible buttons
+- Semantic HTML
+- aria-label attributes where appropriate
+- Good color contrast
+- Responsive layouts
+
+---
+
+# Performance
+
+Optimizations
+
+- Component reuse
+- Lazy resource caching
+- Lightweight assets
+- Minimal bundle size
+- Service Worker caching
+- Optimized for Slow 3G
+
+---
+
+# Known Limitations
+
+This project intentionally uses localStorage because the assignment specifies that a backend is not required.
+
+Current limitations
+
+- No real backend synchronization
+- Offline queue is simulated using localStorage
+- Uploaded images remain on the local device
+- No live status-tracking view in this version — reference ID and confirmation details are stored, but a dedicated status timeline was not built out for this submission
+
+---
+
+# Future Improvements
+
+If given more development time I would implement
+
+- Real backend using Node.js and Express
+- A status tracker view (Submitted → Assigned → In Progress → Resolved) backed by real state instead of a mock
+- Push notifications
+- User authentication
+- GPS location detection
+- Map integration
+- Cloud image uploads
+- Real-time issue tracking
+- Admin dashboard
+- Analytics dashboard
+
+---
+
+# Lighthouse
+
+(Add Lighthouse screenshot here)
+
+Target
+
+- Performance 90+
+- Accessibility 90+
+- Best Practices 90+
+- SEO 90+
+
+---
+
+# Testing
+
+Tested on
+
+- Google Chrome
+- Microsoft Edge
+
+Responsive testing
+
+- Mobile
+- Tablet
+- Desktop
+
+Network testing
+
+- Online
+- Offline
+- Slow 3G
+
+---
+
+# AI Use Log
+
+I used Claude as a development assistant throughout this assignment — for architecture discussions, debugging, and documentation, not for wholesale code generation. Everything below was reviewed, tested, and adjusted by hand before being committed.
+
+**Tool used:** Claude (Anthropic)
+
+**Where it helped:**
+
+- Discussing React project structure and how to organize screens, context, and services for a 3-screen flow
+- Working through the PWA setup — manifest fields, service worker caching strategy, and install-prompt behavior
+- Debugging Web Speech API quirks across browsers (start/stop handling, permission errors)
+- Reasoning through the offline queue + localStorage sync approach
+- Structuring and drafting this README
+
+**What I did myself:**
+
+- Wrote and wired up all component logic, styling, and state management by hand
+- Tested every flow manually under Chrome DevTools Slow 3G and offline modes
+- Verified bilingual toggle coverage across all screens
+- Made the final calls on UI/UX, animation timing, and what shipped vs. what got cut
+
+I'm comfortable walking through any part of this codebase and explaining the reasoning behind it in an interview — the AI was used to move faster on setup and debugging, not to skip understanding the implementation.
+
+---
+
+# What I Learned
+
+During this assignment I gained hands-on experience with
+
+- Progressive Web Applications
+- Browser APIs
+- React Context API
+- Service Workers
+- Web Speech API
+- Mobile-first UI design
+- Offline-first concepts
+- Structuring scalable React projects
+
+---
+
+# Author
+
+**Prafull Jadhav**
+
+GitHub
+
+https://github.com/PrafullJ001
+
+---
+
+# Thank You
+
+Thank you for reviewing my submission.
+
+This assignment helped me learn practical frontend engineering concepts such as Progressive Web Applications, multilingual interfaces, offline support, and building responsive user experiences.
+
+I appreciate the opportunity and look forward to your feedback.
