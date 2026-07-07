@@ -1,12 +1,12 @@
 import { BrowserRouter } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
-import CategoryPage from "./pages/CategoryPage";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
   return (
     <BrowserRouter>
       <LanguageProvider>
-        <CategoryPage />
+        <DetailsPage />
       </LanguageProvider>
     </BrowserRouter>
   );
