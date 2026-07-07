@@ -7,6 +7,7 @@ import ImageUploader from "../components/ImageUploader";
 import Button from "../components/Button";
 import { useLanguage } from "../hooks/useLanguage";
 import { storageService } from "../services/storageService";
+import VoiceRecorder from "../components/VoiceRecorder";
 
 export default function DetailsPage() {
   const { t } = useLanguage();
@@ -56,8 +57,15 @@ export default function DetailsPage() {
 
         <div className="space-y-6">
           <DescriptionInput value={description} onChange={handleDescriptionChange} />
+          <VoiceRecorder
+            onTranscript={(transcript) => {
+              const merged = description
+                ? `${description} ${transcript}`
+                : transcript;
+              handleDescriptionChange(merged.slice(0, 500));
+            }}
+          />
           <ImageUploader image={image} onChange={handleImageChange} />
-          {/* VoiceRecorder slots in here — commit 8 */}
         </div>
       </main>
 
