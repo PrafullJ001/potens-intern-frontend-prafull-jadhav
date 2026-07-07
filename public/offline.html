@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline — CivicVoice</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #f8fafc;
+        color: #0f172a;
+        text-align: center;
+        padding: 24px;
+      }
+      h1 { font-size: 18px; font-weight: 600; margin: 0; }
+      p { font-size: 14px; color: #64748b; margin: 0; max-width: 280px; }
+      button {
+        margin-top: 8px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        background: #0f172a;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>You're offline</h1>
+    <p>Check your connection. Any report you already submitted is saved on this device.</p>
+    <button onclick="location.reload()">Try again</button>
+  </body>
+</html>
