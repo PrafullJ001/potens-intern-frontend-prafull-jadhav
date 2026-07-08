@@ -61,7 +61,7 @@ export default function ConfirmationPage() {
   if (!submission) return null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50">
+    <div className="min-h-[100svh] flex flex-col bg-slate-50">
       <Header />
       <ProgressStepper currentStep="confirmation" />
 

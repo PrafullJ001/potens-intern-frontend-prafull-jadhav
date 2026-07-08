@@ -25,7 +25,7 @@ export default function CategoryPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50">
+    <div className="min-h-[100svh] flex flex-col bg-slate-50">
       <Header />
       <ProgressStepper currentStep="category" />
 
