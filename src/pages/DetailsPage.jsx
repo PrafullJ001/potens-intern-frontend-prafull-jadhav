@@ -18,8 +18,6 @@ export default function DetailsPage() {
   const [description, setDescription] = useState(draft.description || "");
   const [image, setImage] = useState(draft.image || null);
 
-  // redirect back if no category chosen (e.g. direct URL visit)
-  // done in an effect, not during render, to avoid React state-update warnings
   useEffect(() => {
     if (!draft.category) {
       navigate("/", { replace: true });
@@ -50,7 +48,7 @@ export default function DetailsPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50">
+    <div className="min-h-[100svh] flex flex-col bg-slate-50">
       <Header />
       <ProgressStepper currentStep="details" />
 
@@ -77,18 +75,22 @@ export default function DetailsPage() {
       </main>
 
       <div
-        className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-slate-100 p-4"
+        className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-t border-slate-100 p-4"
         style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
       >
         <div className="max-w-md sm:max-w-lg mx-auto flex gap-3">
           <Button
             variant="secondary"
             onClick={() => navigate(-1)}
-            className="w-auto px-5 shrink-0"
+            className="flex-1"
           >
             {t("common.back")}
           </Button>
-          <Button onClick={handleNext} disabled={!description.trim()}>
+          <Button
+            onClick={handleNext}
+            disabled={!description.trim()}
+            className="flex-1"
+          >
             {t("common.next")}
           </Button>
         </div>
